@@ -1,4 +1,4 @@
-# Задача №45. Решение в группах
+# Задача №45.
 # Два различных натуральных числа n и m называются
 # дружественными, если сумма делителей числа n
 # (включая 1, но исключая само n) равна числу m и
@@ -15,3 +15,23 @@
 # пару не дает).
 # Ввод:    Вывод:
 # 300     220 284
+
+k = int(input('Введите число: '))
+
+temp_list = list()
+temp_list.append(0)
+
+for i in range(1, k + 1):
+    sum_del = 0
+    for n in range(1, i):
+        if i % n == 0:
+            sum_del = sum_del + n
+    temp_list.append(sum_del)
+
+for M in range (0, len(temp_list)):
+    for N in range(M, len(temp_list)):
+        if temp_list[M] == N and temp_list[N] == M and N != M:
+            print(N, M)
+
+
+
